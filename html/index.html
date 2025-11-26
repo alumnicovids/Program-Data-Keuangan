@@ -91,7 +91,7 @@
           <input
             type="text"
             id="search-data"
-            placeholder="🔍 Search by description/category..."
+            placeholder="🔍 Search by description/category/date (YYYY-MM-DD)..."
           />
           <button id="find-data-btn">Search Data</button>
         </div>
@@ -137,10 +137,12 @@
         </div>
 
         <div class="category-summary">
-          <h3>🏷️ Category Summary</h3>
-          <p>Food & Drink: Rp 0</p>
-          <p>Transportation: Rp 0</p>
-          <p>Entertainment: Rp 0</p>
+          <h3>🏷️ Category Summary (Monthly Expense)</h3>
+          <p id="total-food-drink">Food & Drink: Rp 0</p>
+          <p id="total-hangout">Hangout & Snacks: Rp 0</p>
+          <p id="total-transportation">Transportation: Rp 0</p>
+          <p id="total-dorm">Shopping & Dorm Needs: Rp 0</p>
+          <p id="total-entertainment">Entertainment: Rp 0</p>
         </div>
 
         <div class="chart-container">

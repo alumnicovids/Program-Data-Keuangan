@@ -135,13 +135,13 @@ document.addEventListener("DOMContentLoaded", () => {
       ? allTransactions.filter((t) => {
           const description = t.description || "";
           const typeLabel = getTransactionTypeLabel(t.type).toLowerCase();
+
           return (
             t.category.toLowerCase().includes(normalizedQuery) ||
             t.type.toLowerCase().includes(normalizedQuery) ||
             typeLabel.includes(normalizedQuery) ||
             description.toLowerCase().includes(normalizedQuery) ||
             t.method.toLowerCase().includes(normalizedQuery) ||
-            // Tambahkan pencarian berdasarkan tanggal
             t.date.includes(normalizedQuery)
           );
         })
@@ -328,6 +328,14 @@ document.addEventListener("DOMContentLoaded", () => {
     let totalEWallet = 0;
     let totalCashWithdrawal = 0;
 
+    const specificCategoryTotals = {
+      "Food & Drink": 0,
+      "Hangout & Snacks": 0,
+      Transportation: 0,
+      "Shopping & Dorm Needs": 0,
+      Entertainment: 0,
+    };
+
     const monthIndex = parseInt(selectedMonth) - 1;
 
     transactions.forEach((t) => {
@@ -345,6 +353,10 @@ document.addEventListener("DOMContentLoaded", () => {
           totalIncome += amount;
         } else if (t.type === "Pengeluaran") {
           totalExpense += amount;
+
+          if (specificCategoryTotals.hasOwnProperty(t.category)) {
+            specificCategoryTotals[t.category] += amount;
+          }
         } else if (t.type === "Tarik Tunai") {
           totalCashWithdrawal += amount;
         }
@@ -387,6 +399,32 @@ document.addEventListener("DOMContentLoaded", () => {
       ".flow-summary p:nth-child(4)"
     ).textContent = `Total Cash Withdrawal: ${formatRupiah(
       totalCashWithdrawal
+    )}`;
+
+    document.getElementById(
+      "total-food-drink"
+    ).textContent = `Food & Drink: ${formatRupiah(
+      specificCategoryTotals["Food & Drink"]
+    )}`;
+    document.getElementById(
+      "total-hangout"
+    ).textContent = `Hangout & Snacks: ${formatRupiah(
+      specificCategoryTotals["Hangout & Snacks"]
+    )}`;
+    document.getElementById(
+      "total-transportation"
+    ).textContent = `Transportation: ${formatRupiah(
+      specificCategoryTotals["Transportation"]
+    )}`;
+    document.getElementById(
+      "total-dorm"
+    ).textContent = `Shopping & Dorm Needs: ${formatRupiah(
+      specificCategoryTotals["Shopping & Dorm Needs"]
+    )}`;
+    document.getElementById(
+      "total-entertainment"
+    ).textContent = `Entertainment: ${formatRupiah(
+      specificCategoryTotals["Entertainment"]
     )}`;
 
     document.querySelector(
@@ -616,7 +654,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert(`[PLH] 🔍 Searching data with keyword: "${currentQuery}"`);
       renderTransactionList(currentQuery);
     });
-    // Event listener untuk input langsung (real-time search)
+
     searchInput.addEventListener("input", (e) => {
       const currentQuery = e.target.value;
       renderTransactionList(currentQuery);
