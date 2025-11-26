@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <title>Financial Data 💰</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Financial Data 📊</h1>
+      <button class="theme-toggle">🌙 Night Theme</button>
+    </header>
+
+    <nav class="side-nav">
+      <ul>
+        <li>
+          <a href="#input-card" class="active-link">📝 Input Transaction</a>
+        </li>
+        <li><a href="#list-card">📜 Transaction History</a></li>
+        <li><a href="#manage-card">📈 Management & Summary</a></li>
+        <li><a href="#whislist-card">✨ Wishlist Savings</a></li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <section class="input-card active-card" id="input-card">
+        <h2>📝 Input Transaction</h2>
+        <div id="input-data">
+          <form id="input-form">
+            <input type="date" id="input-date" required />
+
+            <select name="input-type" id="input-type" required>
+              <option value="" disabled selected>✨ Transaction Type</option>
+              <option value="Pemasukan">💰 Income</option>
+              <option value="Pengeluaran">💸 Expense</option>
+              <option value="Tarik Tunai">💳 Cash Withdrawal</option>
+              <option value="E-Wallet">📱 E-Wallet Transfer</option>
+            </select>
+
+            <input
+              type="number"
+              id="input-total"
+              placeholder="💸 Enter transaction amount (Rp)..."
+              required
+            />
+
+            <select name="input-category" id="input-category" required>
+              <option value="" disabled selected>
+                🏷️ Transaction Category
+              </option>
+              <option value="Food & Drink">🍔 Food & Drink</option>
+              <option value="Hangout & Snacks">☕ Hangout & Snacks</option>
+              <option value="Transportation">🚗 Transportation</option>
+              <option value="Shopping & Dorm Needs">
+                🛍️ Shopping & Dorm Needs
+              </option>
+              <option value="Credit & Internet">📡 Credit & Internet</option>
+              <option value="Entertainment">🎬 Entertainment</option>
+              <option value="Family & Social">👨‍👩‍👧‍👦 Family & Social</option>
+              <option value="Education & Certification">
+                📚 Education & Certification
+              </option>
+              <option value="Finance & Adjustments">
+                🏦 Finance & Adjustments
+              </option>
+              <option value="Others">🤷 Others</option>
+            </select>
+
+            <input
+              type="text"
+              id="input-description"
+              placeholder="📝 Enter transaction description..."
+            />
+
+            <select name="input-metode" id="input-metode" required>
+              <option value="" disabled selected>💳 Transaction Method</option>
+              <option value="Debit">💳 Debit</option>
+              <option value="Tunai">💵 Cash</option>
+              <option value="E-Wallet">📱 E-Wallet</option>
+            </select>
+            <button type="submit">✅ Add Transaction</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="list-card" id="list-card">
+        <h2>📜 Transaction History</h2>
+        <div class="search-data">
+          <input
+            type="text"
+            id="search-data"
+            placeholder="🔍 Search by description/category..."
+          />
+          <button id="find-data-btn">Search Data</button>
+        </div>
+        <ul id="transaction-list"></ul>
+      </section>
+
+      <section class="manage-card" id="manage-card">
+        <h2>📈 Management & Summary</h2>
+
+        <div class="manage-view">
+          <label for="select-month">🗓️ View Data Month:</label>
+          <select id="select-month">
+            <option value="01">January</option>
+            <option value="02">February</option>
+            <option value="03">March</option>
+            <option value="04">April</option>
+            <option value="05">May</option>
+            <option value="06">June</option>
+            <option value="07">July</option>
+            <option value="08">August</option>
+            <option value="09">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+          <select id="select-year">
+            <option value="" disabled selected>Select Year</option>
+          </select>
+        </div>
+        <div class="financial-summary">
+          <h3>💰 Total Balance & Accounts</h3>
+          <p>Total Balance: Rp 0</p>
+          <p>Total Cash: Rp 0</p>
+          <p>Total Debit: Rp 0</p>
+          <p>Total E-Wallet: Rp 0</p>
+        </div>
+
+        <div class="flow-summary">
+          <h3>🌊 Fund Flow</h3>
+          <p>Total Income: Rp 0</p>
+          <p>Total Expense: Rp 0</p>
+          <p>Total Cash Withdrawal: Rp 0</p>
+        </div>
+
+        <div class="category-summary">
+          <h3>🏷️ Category Summary</h3>
+          <p>Food & Drink: Rp 0</p>
+          <p>Transportation: Rp 0</p>
+          <p>Entertainment: Rp 0</p>
+        </div>
+
+        <div class="chart-container">
+          <h3>📈 Fund Flow Chart</h3>
+          <canvas id="financial-chart"></canvas>
+        </div>
+
+        <div>
+          <input
+            type="text"
+            id="add-manage-category"
+            placeholder="➕ Enter new category..."
+          />
+          <button id="add-manage-category-btn">Add Category</button>
+
+          <input
+            type="text"
+            id="delete-manage-category"
+            placeholder="➖ Enter category to delete"
+          />
+          <button id="delete-manage-category-btn">Delete Category</button>
+        </div>
+      </section>
+
+      <section class="whislist-card" id="whislist-card">
+        <h2>✨ Wishlist Savings</h2>
+        <div>
+          <input
+            type="text"
+            id="input-whislist-item"
+            placeholder="🎁 Enter your wishlist item..."
+          />
+          <input
+            type="text"
+            id="input-whislist-price"
+            placeholder="🎯 Enter target price (Rp)..."
+          />
+          <button id="add-whislist-btn">Add Wishlist</button>
+        </div>
+
+        <ul id="whislist-list"></ul>
+      </section>
+    </main>
+
+    <script src="../javascript/script.js"></script>
+  </body>
+</html>

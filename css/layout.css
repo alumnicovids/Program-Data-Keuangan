@@ -1,0 +1,306 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background: linear-gradient(
+    135deg,
+    #1f005c,
+    #5b0060,
+    #870160,
+    #ac255e,
+    #ca485c,
+    #e16b5c,
+    #f39060,
+    #ffb568
+  );
+  min-height: 100vh;
+  color: white;
+  padding-top: 60px;
+}
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+.site-header h1 {
+  font-size: 1.5em;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle {
+  padding: 8px 15px;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.side-nav {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 200px;
+  height: calc(100vh - 50px);
+
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+
+  padding: 20px 0;
+  z-index: 900;
+  overflow-y: auto;
+}
+
+.side-nav ul {
+  list-style: none;
+}
+
+.side-nav li a {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: white;
+  border-left: 5px solid transparent;
+  transition: background-color 0.2s, border-left 0.2s;
+}
+
+.side-nav li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-left: 5px solid rgba(255, 255, 255, 0.8);
+}
+
+.side-nav li a.active-link {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-left: 5px solid white;
+  font-weight: bold;
+}
+
+.main-content {
+  margin-left: 200px;
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 25px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.search-data {
+  display: flex;
+  gap: 10px;
+}
+
+section.active-card {
+  display: block;
+  opacity: 1;
+}
+
+h2 {
+  color: white;
+  margin-bottom: 20px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  padding-bottom: 5px;
+}
+
+h3 {
+  color: white;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.manage-view {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 25px;
+  padding: 10px 15px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.manage-view label {
+  font-weight: bold;
+  color: white;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  border-radius: 8px;
+  font-size: 1em;
+}
+
+.manage-view select {
+  width: auto;
+  padding: 8px 12px;
+  margin-bottom: 0;
+  font-size: 0.9em;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+select option {
+  background: #1a1a1a;
+  color: white;
+}
+
+form button[type="submit"],
+.list-card button,
+.manage-card button,
+.whislist-card button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 5px;
+  transition: background-color 0.2s;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+form button[type="submit"] {
+  width: 100%;
+  background-color: rgba(40, 167, 69, 0.7);
+}
+
+.edit-btn {
+  background-color: rgba(255, 193, 7, 0.7);
+  color: #333;
+}
+.delete-btn {
+  background-color: rgba(220, 53, 69, 0.7);
+  color: white;
+  margin-left: 5px;
+}
+.add-amount-btn {
+  background-color: rgba(23, 162, 184, 0.7);
+  color: white;
+}
+.edit-amount-btn {
+  background-color: rgba(108, 117, 125, 0.7);
+  color: white;
+}
+
+#transaction-list,
+#whislist-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.transaction-item,
+.whislist-item {
+  padding: 10px;
+  margin-bottom: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.transaction-item:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.transaction-item .main-info {
+  font-weight: bold;
+  display: block;
+  color: white;
+}
+
+.transaction-item .detail-info {
+  font-size: 0.85em;
+  color: rgba(255, 255, 255, 0.7);
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s;
+  overflow: hidden;
+  padding-left: 5px;
+}
+
+.transaction-item:hover .detail-info {
+  max-height: 50px;
+  opacity: 1;
+  padding-top: 5px;
+}
+
+.financial-summary,
+.flow-summary,
+.category-summary {
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.financial-summary p,
+.flow-summary p,
+.category-summary p {
+  padding: 5px 0;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.chart-container {
+  margin-top: 30px;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  background-color: white;
+  height: 350px;
+}
+
+.chart-container h3 {
+  color: #333;
+}
+
+.whislist-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.whislist-item progress {
+  flex-grow: 1;
+  margin: 0 10px;
+  height: 12px;
+}
