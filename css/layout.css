@@ -65,7 +65,7 @@ button:active {
   top: 0;
   left: 0;
   right: 0;
-  height: 60px;
+  height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -83,7 +83,7 @@ button:active {
 .side-nav {
   position: fixed;
   width: var(--sidebar-width);
-  padding-top: 20px;
+  padding-top: 60px;
   height: calc(100vh - 60px);
   left: 0;
   top: 60px;
@@ -126,13 +126,14 @@ button:active {
 
 .main-content {
   margin-left: var(--sidebar-width);
-  padding: 80px 20px 20px 20px;
+  padding: 120px 20px 20px 20px;
   flex-grow: 1;
 }
 
 .main-content section {
   display: none;
   min-height: calc(100vh - 100px);
+  border-radius: 10px;
 }
 
 .main-content section.active-card {
@@ -144,7 +145,7 @@ button:active {
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   max-width: 100%;
-  margin-top: 20px;
+  margin: 20px;
   padding: var(--card-padding);
   background: var(--card-bg-color);
   border: 1px solid var(--card-border-color);
@@ -165,8 +166,7 @@ button:active {
 }
 
 .search-data {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px;
 }
 
 #search-data {
@@ -179,6 +179,8 @@ button:active {
 
 .transaction-item {
   margin-bottom: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -187,7 +189,7 @@ button:active {
   box-shadow: var(--card-shadow);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border-radius: 20px;
+  border-radius: 10px;
   transition: background-color 0.3s;
 }
 
@@ -226,20 +228,28 @@ button:active {
   margin-right: 5px;
   padding: 5px 10px;
   font-size: 0.8em;
+  margin-left: 5px;
+}
+
+.transaction-item .action-buttons button:hover {
+  background: var(--accent-color);
+  color: #000000;
+  box-shadow: 0 0 10px var(--accent-color);
+  transform: scale(1.05);
+  filter: none;
 }
 
 .manage-view {
   display: flex;
   gap: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px;
 }
 
 .financial-summary,
 .expense-category-summary,
 .flow-summary {
   padding: var(--card-padding);
-  margin-bottom: 20px;
+  margin: 20px;
   background: var(--card-bg-color);
   border: 1px solid var(--card-border-color);
   box-shadow: var(--card-shadow);
@@ -257,6 +267,21 @@ button:active {
   color: var(--accent-color);
 }
 
+.financial-summary p,
+.expense-category-summary p,
+.flow-summary p {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.financial-summary p .value,
+.expense-category-summary p .value,
+.flow-summary p .value {
+  text-align: right;
+}
+
 .chart-container {
   height: 400px;
   width: 100%;
@@ -272,7 +297,7 @@ button:active {
 #whislist-card > div:first-of-type {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin: 20px;
   padding: var(--card-padding);
   background: var(--card-bg-color);
   border: 1px solid var(--card-border-color);
@@ -292,6 +317,8 @@ button:active {
 
 .whislist-item {
   margin-bottom: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
   padding: 15px;
   display: flex;
   flex-direction: column;

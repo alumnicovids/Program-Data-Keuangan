@@ -226,40 +226,34 @@ export const updateSummary = () => {
     })
   );
 
-  document.getElementById("sum-balance").textContent = `Total: ${formatRp(
+  document.querySelector("#sum-balance .value").textContent = formatRp(
     sums.inc - sums.exp
-  )}`;
-  document.getElementById("sum-cash").textContent = `Cash: ${formatRp(
-    sums.cash
-  )}`;
-  document.getElementById("sum-debit").textContent = `Debit: ${formatRp(
+  );
+  document.querySelector("#sum-cash .value").textContent = formatRp(sums.cash);
+  document.querySelector("#sum-debit .value").textContent = formatRp(
     sums.debit
-  )}`;
-  document.getElementById("sum-ewallet").textContent = `E-Wallet: ${formatRp(
+  );
+  document.querySelector("#sum-ewallet .value").textContent = formatRp(
     sums.ewallet
-  )}`;
-  document.getElementById("sum-income").textContent = `In: ${formatRp(
-    sums.inc
-  )}`;
-  document.getElementById("sum-expense").textContent = `Out: ${formatRp(
+  );
+  document.querySelector("#sum-income .value").textContent = formatRp(sums.inc);
+  document.querySelector("#sum-expense .value").textContent = formatRp(
     sums.exp
-  )}`;
+  );
 
-  document.getElementById(
-    "sum-food-drink"
-  ).textContent = `Food & Drink: ${formatRp(sums["Food & Drink"])}`;
-  document.getElementById(
-    "sum-hangout"
-  ).textContent = `Hangout & Snacks: ${formatRp(sums["Hangout & Snacks"])}`;
-  document.getElementById(
-    "sum-transportation"
-  ).textContent = `Transportation: ${formatRp(sums["Transportation"])}`;
-  document.getElementById(
-    "sum-shopping-dorm"
-  ).textContent = `Shopping & Dorm Needs: ${formatRp(
+  document.querySelector("#sum-food-drink .value").textContent = formatRp(
+    sums["Food & Drink"]
+  );
+  document.querySelector("#sum-hangout .value").textContent = formatRp(
+    sums["Hangout & Snacks"]
+  );
+  document.querySelector("#sum-transportation .value").textContent = formatRp(
+    sums["Transportation"]
+  );
+  document.querySelector("#sum-shopping-dorm .value").textContent = formatRp(
     sums["Shopping & Dorm Needs"]
-  )}`;
-  document.getElementById(
-    "sum-entertainment"
-  ).textContent = `Entertainment: ${formatRp(sums["Entertainment"])}`;
+  );
+  document.querySelector("#sum-entertainment .value").textContent = formatRp(
+    sums["Entertainment"]
+  );
 };
