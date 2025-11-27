@@ -1,0 +1,79 @@
+.pink {
+  background: linear-gradient(135deg, #f8bbd0, #ffffff, #f8bbda);
+  color: #424242;
+
+  --bg-color: transparent;
+  --text-color: #424242;
+  --main-info-color: #e91e63;
+  --accent-color: #f06292;
+  --secondary-accent-color: #e91e63;
+  --border-color: rgba(240, 98, 146, 0.3);
+
+  --nav-text-color: var(--text-color);
+  --nav-hover-bg: rgba(240, 98, 146, 0.1);
+  --nav-active-bg: rgba(240, 98, 146, 0.2);
+
+  --button-bg: rgba(240, 98, 146, 0.8);
+  --button-text-color: #ffffff;
+  --button-shadow: 0 4px 12px rgba(240, 98, 146, 0.4);
+
+  --card-bg-color: rgba(255, 255, 255, 0.8);
+  --card-border-color: rgba(240, 98, 146, 0.2);
+  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+
+  --progress-bg: rgba(240, 98, 146, 0.1);
+  --progress-fill: var(--accent-color);
+}
+
+.pink .site-header,
+.pink .side-nav {
+  background: var(--card-bg-color);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  box-shadow: var(--card-shadow);
+  border-color: var(--card-border-color);
+}
+
+.pink button {
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pink button:hover {
+  background: var(--secondary-accent-color);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(240, 98, 146, 0.8);
+  transform: translateY(-2px) scale(1.01);
+  filter: none;
+}
+
+.pink button:active {
+  transform: translateY(0px) scale(0.99);
+  background: #c2185b;
+}
+
+.pink .delete-btn {
+  background-color: #d32f2f;
+  border-color: #d32f2f;
+  color: white;
+}
+
+.pink .delete-btn:hover {
+  background-color: #b71c1c;
+  box-shadow: 0 0 10px #b71c1c;
+  color: white;
+}
+
+.pink input,
+.pink select,
+.pink textarea {
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.pink input::placeholder,
+.pink textarea::placeholder {
+  color: rgba(66, 66, 66, 0.5);
+}

@@ -66,7 +66,9 @@ export const renderList = (q = "") => {
         }</div>
               <div class="action-buttons">
                   <button class="edit-btn" data-id="${t.id}">✏️ Edit</button>
-                  <button class="delete-btn" data-id="${t.id}">🗑️ Hapus</button>
+                  <button class="delete-btn" data-id="${
+                    t.id
+                  }">🗑️ Delete</button>
               </div>
           </li>`;
       })
