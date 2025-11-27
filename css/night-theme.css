@@ -1,0 +1,78 @@
+.night {
+  background: linear-gradient(135deg, #2c3e50, #4ca1af, #2c3e50);
+  color: #e0f0ff;
+
+  --bg-color: transparent;
+  --text-color: #e0f0ff;
+  --main-info-color: #ffffff;
+  --accent-color: #4ca1af;
+  --border-color: rgba(255, 255, 255, 0.25);
+  --nav-text-color: var(--text-color);
+  --nav-hover-bg: rgba(76, 161, 175, 0.2);
+  --nav-active-bg: rgba(76, 161, 175, 0.3);
+  --button-bg: rgba(255, 255, 255, 0.1);
+  --button-text-color: #e0f0ff;
+  --button-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --progress-bg: rgba(255, 255, 255, 0.2);
+}
+
+.night .site-header,
+.night .side-nav {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.15);
+  border-radius: 0;
+}
+
+.night input,
+.night select,
+.night textarea {
+  background: rgba(0, 0, 0, 0.3);
+  color: #e0f0ff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.night input::placeholder,
+.night textarea::placeholder {
+  color: #b0cce0;
+}
+
+.night #input-form {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.night .financial-summary,
+.night .expense-category-summary,
+.night .flow-summary {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.night .transaction-item,
+.night .whislist-item,
+.night #whislist-card > div:first-of-type,
+.night .chart-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.night button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  transform: translateY(-1px) scale(1.01);
+  filter: none;
+}
